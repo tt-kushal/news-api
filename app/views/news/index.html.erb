@@ -1,0 +1,12 @@
+<h1>Top Headlines</h1>
+<% @articles.each do |article| %>
+  <div>
+    <h2><%= article['title'] %></h2>
+    <p><%= article['description'] %></p>
+  <audio controls autoplay>
+  <source src="<%= audio_path(text: article['description']) %>" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+  </div>
+<% end %>
+
