@@ -30,11 +30,13 @@ class NewsController < ApplicationController
 
     if response.code == '200'
       audio_data = response.body
-      send_data(audio_data, type: 'audio/mpeg', disposition: 'inline')
+      send_data(
+       audio_data,type: 'audio/mpeg',disposition: 'inline',filename: "audio-#{Time.now.to_i}.mp3"
+)
     else
       render plain: "Error: #{response.message}", status: response.code
     end
-    sleep(5)
+    
   end
 end
 
